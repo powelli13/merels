@@ -1,8 +1,13 @@
+using NUnit.Framework.Internal;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class GameBoardNode : MonoBehaviour
 {
+    [SerializeField]
+    GameObject testTriangle;
+
     private bool isRed = false;
 
 
@@ -23,12 +28,14 @@ public class GameBoardNode : MonoBehaviour
         Debug.Log("Sprite clicked: " + gameObject.name);
         
 
-        if (!this.isRed) {
+        if (!isRed) {
             GetComponent<SpriteRenderer>().color = Color.red;
-            this.isRed = true;
+            isRed = true;
+            testTriangle.SetActive(true);
         } else {
             GetComponent<SpriteRenderer>().color = Color.gray;
-            this.isRed = false;
+            isRed = false;
+            testTriangle.SetActive(false);
         }
     }
 }
