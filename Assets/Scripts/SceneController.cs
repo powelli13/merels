@@ -16,6 +16,14 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     Sprite[] images;
 
+    private MemoryCard firstRevealed;
+    private MemoryCard secondRevealed;
+    private int score = 0;
+
+    public bool canReveal {
+        get { return secondRevealed == null; }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,6 +56,12 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     private int[] ShuffleArray(int[] numbers)
     {
         int[] newArray = numbers.Clone() as int[];
@@ -62,9 +76,33 @@ public class SceneController : MonoBehaviour
         return newArray;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void CardRevealed(MemoryCard card)
     {
-        
+        if (firstRevealed == null)
+        {
+            firstRevealed = card;
+        } else {
+            secondRevealed = card;
+            StartCoroutine(CheckMatch());
+        }
+    }
+
+    private IEnumerator CheckMatch()
+    {
+        if (firstRevealed.Id == secondRevealed.Id)
+        {
+            score++;
+            Debug.Log($"Score: {score}");
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+            firstRevealed.Unreveal();
+            secondRevealed.Unreveal();
+        }
+
+        firstRevealed = null;
+        secondRevealed = null;
     }
 }
