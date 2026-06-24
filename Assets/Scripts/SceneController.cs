@@ -1,7 +1,7 @@
-using System.Data.Common;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -15,6 +15,9 @@ public class SceneController : MonoBehaviour
 
     [SerializeField]
     Sprite[] images;
+
+    [SerializeField]
+    TMP_Text scoreLabel;
 
     private MemoryCard firstRevealed;
     private MemoryCard secondRevealed;
@@ -87,12 +90,18 @@ public class SceneController : MonoBehaviour
             StartCoroutine(CheckMatch());
         }
     }
+    
+    public void Restart()
+    {
+        SceneManager.LoadScene("MemoryGame");
+    }
 
     private IEnumerator CheckMatch()
     {
         if (firstRevealed.Id == secondRevealed.Id)
         {
             score++;
+            scoreLabel.text = $"Score: {score}";
             Debug.Log($"Score: {score}");
         }
         else
