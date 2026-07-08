@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
         // in the different positions.
         // This may be overkill but I'll simplify later. For now I like having the board
         // setup in code rather than the GUI.
+        // Could possibly setup two loops instead that loop through the offsets for x and y
         Dictionary<int, (float x, float y)> nodeOffsets = new()
         {
            // Upper top row
