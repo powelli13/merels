@@ -5,8 +5,15 @@ public class BoardNode : MonoBehaviour
     [SerializeField]
     GameController gameController;
 
-    [SerializeField]
-    int id;
+    // [SerializeField]
+    // int _id;
+
+    private int _id;
+
+    public int Id
+    {
+        get { return _id; }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +29,12 @@ public class BoardNode : MonoBehaviour
 
     void OnMouseUp()
     {
-        Debug.Log("Node clicked with ID: " + id);
-        gameController.ReportClick(id);
+        Debug.Log("Node clicked with ID: " + _id);
+        gameController.ReportClick(_id);
+    }
+
+    public void SetBoardNode(int id)
+    {
+        _id = id;
     }
 }
