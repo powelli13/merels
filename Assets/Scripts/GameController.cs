@@ -14,12 +14,32 @@ public class GameController : MonoBehaviour
     // Map of node IDs to the triplet groups in which they can score.
     // This is essentially a pre-calculation of all the scoring triplets.
     // It is helpful because of the structure of the board not being an orthoganal grid.
-    // TODO add more, also mess around with different types, maybe tuples are faster
     private Dictionary<int, List<int[]>> _scoringTriplets = new()
     {
-        [0] = new List<int[]> {new int[] {0, 1, 2}, new int[] {0, 4, 7}},
-        [1] = new List<int[]> {new int[] {0, 1, 2}, new int[] {1, 5, 8}},
-        [2] = new List<int[]> {new int[] {0, 1, 2}, new int[] {2, 6, 9}}
+        [0] = new List<int[]> {new int[] {0, 1, 2}, new int[] {0, 9, 21}},
+        [1] = new List<int[]> {new int[] {0, 1, 2}, new int[] {1, 4, 7}},
+        [2] = new List<int[]> {new int[] {0, 1, 2}, new int[] {2, 14, 23}},
+        [3] = new List<int[]> {new int[] {3, 4, 5}, new int[] {3, 10, 18}},
+        [4] = new List<int[]> {new int[] {3, 4, 5}, new int[] {1, 4, 7}},
+        [5] = new List<int[]> {new int[] {3, 4, 5}, new int[] {5, 13, 20}},
+        [6] = new List<int[]> {new int[] {6, 7, 8}, new int[] {6, 11, 15}},
+        [7] = new List<int[]> {new int[] {6, 7, 8}, new int[] {1, 4, 7}},
+        [8] = new List<int[]> {new int[] {6, 7, 8}, new int[] {8, 12, 17}},
+        [9] = new List<int[]> {new int[] {9, 10, 11}, new int[] {0, 9, 21}},
+        [10] = new List<int[]> {new int[] {9, 10, 11}, new int[] {3, 10, 18}},
+        [11] = new List<int[]> {new int[] {9, 10, 11}, new int[] {6, 11, 15}},
+        [12] = new List<int[]> {new int[] {12, 13, 14}, new int[] {8, 12, 17}},
+        [13] = new List<int[]> {new int[] {12, 13, 14}, new int[] {5, 13, 20}},
+        [14] = new List<int[]> {new int[] {12, 13, 14}, new int[] {2, 14, 23}},
+        [15] = new List<int[]> {new int[] {15, 16, 17}, new int[] {6, 11, 15}},
+        [16] = new List<int[]> {new int[] {15, 16, 17}, new int[] {16, 19, 22}},
+        [17] = new List<int[]> {new int[] {15, 16, 17}, new int[] {8, 12, 17}},
+        [18] = new List<int[]> {new int[] {18, 19, 20}, new int[] {3, 10, 18}},
+        [19] = new List<int[]> {new int[] {18, 19, 20}, new int[] {16, 19, 22}},
+        [20] = new List<int[]> {new int[] {18, 19, 20}, new int[] {5, 13, 20}},
+        [21] = new List<int[]> {new int[] {21, 22, 23}, new int[] {0, 9, 21}},
+        [22] = new List<int[]> {new int[] {21, 22, 23}, new int[] {16, 19, 22}},
+        [23] = new List<int[]> {new int[] {21, 22, 23}, new int[] {2, 14, 23}},
     };
 
     private Dictionary<int, BoardNode> _nodes = new();
@@ -144,10 +164,6 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("Sub ID is: " + subId);
             }
-            //jif ()
-            //j{
-
-            //j}
         }
 
         return false;
