@@ -57,15 +57,7 @@ public class GameController : MonoBehaviour
         // The board center
         Vector3 bc = transform.position;
 
-        // offsets
-        // first circle: x:2 y:1
-        // second circle: x:3.25 y:2.25
-        // third circle: x:4.5 y:3.5
-        // I use a static board node positions so that the Node IDs can be found reliably
-        // in the different positions.
-        // This may be overkill but I'll simplify later. For now I like having the board
-        // setup in code rather than the GUI.
-        // Could possibly setup two loops instead that loop through the offsets for x and y
+        // Relative offsets for node placements
         Dictionary<int, (float x, float y)> nodeOffsets = new()
         {
            // Upper top row
