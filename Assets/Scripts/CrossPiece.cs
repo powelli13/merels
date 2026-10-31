@@ -11,12 +11,6 @@ public class CrossPiece : MonoBehaviour
     void Start()
     {
        GetComponent<SpriteRenderer>().sprite = image; 
-
-        float posX = 0f;
-        float posY = 0f;
-        float posZ = 0f;
-
-       this.transform.position = new Vector3(posX, posY, posZ);
     }
 
     // Update is called once per frame
@@ -25,8 +19,13 @@ public class CrossPiece : MonoBehaviour
         
     }
 
-    public void PlacePiece()
+    void OnMouseUp()
     {
-        // TODO take in a location and display the piece there
+        Debug.Log("you clicked on a cross piece :)");
+    }
+
+    public void PlacePiece(Vector3 pos)
+    {
+       this.transform.position = new Vector3(pos.x, pos.y, pos.z);
     }
 }

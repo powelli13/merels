@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   originalNode: {fileID: 2093974069}
+  originalCrossPiece: {fileID: 184199425}
 --- !u!1 &561845498
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +511,7 @@ GameObject:
   - component: {fileID: 2093974068}
   - component: {fileID: 2093974069}
   m_Layer: 0
-  m_Name: Circle00
+  m_Name: BoardNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

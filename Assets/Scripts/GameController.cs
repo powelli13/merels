@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     BoardNode originalNode;
 
+    [SerializeField]
+    CrossPiece originalCrossPiece;
+
     // Map of node IDs to the triplet groups in which they can score.
     // This is essentially a pre-calculation of all the scoring triplets.
     // It is helpful because of the structure of the board not being an orthoganal grid.
@@ -131,10 +134,20 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("From GameControler: BoardNode clicked ID: " + clickedId);
 
-        // TODO trying out different wiring structures for three in a row scoring detections
         // Check if the movement selected three in a row
-        // TODO this might throw an error on a board reference value, that would mean some setup is broken
         DetectScore(clickedId);
+
+        // TODO just testing
+        // instantiate a cross
+        var clickedNode = _nodes.GetValueOrDefault(clickedId);
+
+        if (clickedNode) {
+            var crossPiece = Instantiate(originalCrossPiece) as CrossPiece;
+            crossPiece.PlacePiece(clickedNode.transform.position);
+            // place it based on the boardnode's vector 3
+        } else {
+            Debug.Log("A click was reported that didn't match a node ID");
+        }
     }
 
     // TODO add piece type in the future
