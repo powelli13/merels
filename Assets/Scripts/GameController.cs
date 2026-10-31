@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     BoardNode originalNode;
 
     [SerializeField]
-    CrossPiece originalCrossPiece;
+    DisplayPiece originalDisplayPiece;
 
     // Map of node IDs to the triplet groups in which they can score.
     // This is essentially a pre-calculation of all the scoring triplets.
@@ -138,13 +138,12 @@ public class GameController : MonoBehaviour
         DetectScore(clickedId);
 
         // TODO just testing
-        // instantiate a cross
+        // instantiate a displayable game piece
         var clickedNode = _nodes.GetValueOrDefault(clickedId);
 
         if (clickedNode) {
-            var crossPiece = Instantiate(originalCrossPiece) as CrossPiece;
-            crossPiece.PlacePiece(clickedNode.transform.position);
-            // place it based on the boardnode's vector 3
+            var displayPiece = Instantiate(originalDisplayPiece) as DisplayPiece;
+            displayPiece.PlacePiece(clickedNode.transform.position, DisplayPiece.CIRCLE_PIECE);
         } else {
             Debug.Log("A click was reported that didn't match a node ID");
         }

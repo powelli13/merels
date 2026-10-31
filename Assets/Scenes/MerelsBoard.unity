@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 184199427}
   - component: {fileID: 184199425}
   m_Layer: 0
-  m_Name: CrossPiece
+  m_Name: DisplayPiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75efbfe3cdbbb1944842355fdc557dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrossPiece
-  image: {fileID: -5490522379244496372, guid: e8d380082b4f68640bff7aeb2d91adb5, type: 3}
+  crossImage: {fileID: -5490522379244496372, guid: e8d380082b4f68640bff7aeb2d91adb5, type: 3}
+  circleImage: {fileID: -9023002539764390441, guid: ab2ea3c8265c5f048bad2918c5590c02, type: 3}
+  gameController: {fileID: 482755535}
 --- !u!4 &184199426
 Transform:
   m_ObjectHideFlags: 0
@@ -269,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   originalNode: {fileID: 2093974069}
-  originalCrossPiece: {fileID: 184199425}
+  originalDisplayPiece: {fileID: 184199425}
 --- !u!1 &561845498
 GameObject:
   m_ObjectHideFlags: 0
