@@ -12,6 +12,7 @@ public class DisplayPiece : MonoBehaviour
     [SerializeField]
     GameController gameController;
 
+    // TODO where should these live?
     public static int CROSS_PIECE = 1;
 
     public static int CIRCLE_PIECE = 0;

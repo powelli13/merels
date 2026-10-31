@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     DisplayPiece originalDisplayPiece;
 
+    private int _currentTurn = DisplayPiece.CROSS_PIECE;
+
     // Map of node IDs to the triplet groups in which they can score.
     // This is essentially a pre-calculation of all the scoring triplets.
     // It is helpful because of the structure of the board not being an orthoganal grid.
@@ -143,7 +145,8 @@ public class GameController : MonoBehaviour
 
         if (clickedNode) {
             var displayPiece = Instantiate(originalDisplayPiece) as DisplayPiece;
-            displayPiece.PlacePiece(clickedNode.transform.position, DisplayPiece.CIRCLE_PIECE);
+            displayPiece.PlacePiece(clickedNode.transform.position, _currentTurn);
+            this.ChangeTurn();
         } else {
             Debug.Log("A click was reported that didn't match a node ID");
         }
@@ -171,5 +174,15 @@ public class GameController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void ChangeTurn()
+    {
+        if (_currentTurn == DisplayPiece.CROSS_PIECE)
+        {
+            _currentTurn = DisplayPiece.CIRCLE_PIECE;
+        } else {
+            _currentTurn = DisplayPiece.CROSS_PIECE;
+        }
     }
 }
